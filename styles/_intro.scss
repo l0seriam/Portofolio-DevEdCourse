@@ -1,0 +1,203 @@
+.main-head {
+  width: 95%;
+  margin: 0 0 0 auto;
+}
+nav {
+  @include flex(space-between, row, center);
+  min-height: 10vh;
+  width: 60%;
+  flex-wrap: wrap;
+  .logo {
+    @include flex(flex-start, row, center);
+    flex: 1 1 10rem;
+    h1 {
+      margin: 2rem;
+    }
+  }
+  ul {
+    @include flex(space-around, row, center);
+    flex: 1 1 40rem;
+  }
+}
+.intro {
+  min-height: 90vh;
+  width: 90%;
+  margin: auto;
+  @include flex(space-between, row, center);
+  flex-wrap: wrap;
+  h2 {
+    font-size: 8rem;
+    padding-top: 2rem;
+    background: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  h3 {
+    font-size: 6rem;
+    padding-top: 2rem;
+  }
+  p {
+    padding-top: 2rem;
+    color: $gray-text;
+  }
+}
+.splash {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  z-index: -1;
+}
+.intro-social {
+  padding-top: 4rem;
+  a {
+    margin-right: 5rem;
+  }
+}
+.intro-text,
+.intro-image {
+  flex: 1 1 40rem;
+}
+.active {
+  background: $background-color;
+  padding: 1rem 3rem;
+  color: white;
+  border-radius: 2rem;
+}
+.burger {
+  display: none;
+}
+#plant-left {
+  animation: Leaf 1.25s ease infinite alternate-reverse;
+}
+#plant-right {
+  animation: Leaf 1.5s ease infinite alternate-reverse;
+}
+#clock-arrow {
+  animation: clock 1.5s infinite linear;
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+#me {
+  animation: me 1s ease infinite alternate;
+  transform-origin: bottom;
+}
+@keyframes Leaf {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-30%);
+  }
+}
+@keyframes clock {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes me {
+  from {
+    transform: rotateZ(-5deg);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+@media screen and (max-width: 1331px) {
+  html {
+    font-size: 53%;
+  }
+  nav {
+    width: 100%;
+  }
+  .splash {
+    display: none;
+  }
+  svg {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 754px) {
+  html {
+    font-size: 45%;
+  }
+  svg {
+    margin: 5rem;
+    height: 60%;
+  }
+  .main-head {
+    width: 90%;
+    margin: auto;
+  }
+
+  .nav-open {
+    transform: translateX(100%);
+  }
+  .nav-links {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease;
+
+    background: $gradient;
+    @include flex(space-around, column, center);
+  }
+  .toggle .line1 {
+    transform: rotateZ(-45deg) translateY(300%);
+    background: white;
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotateZ(45deg) translateY(-300%);
+    background: white;
+  }
+  nav {
+    @include flex(center, row, center);
+    .logo {
+      flex: 1 1 20rem;
+    }
+    ul {
+      a {
+        font-size: 4rem;
+        text-decoration: underline;
+      }
+    }
+    .burger {
+      display: block;
+      position: relative;
+    }
+    .burger span {
+      display: block;
+      background: $gradient;
+      padding: 0.2rem 2rem;
+      margin: 0.5rem 0rem;
+    }
+  }
+  .intro-social {
+    @include flex(center, row, center);
+    a {
+      margin: 2rem;
+    }
+  }
+  .intro-text {
+    text-align: center;
+  }
+  .intro-image {
+    text-align: center;
+  }
+  .intro {
+    @include flex(center, row, center);
+  }
+  .project img {
+    width: 100%;
+  }
+}
